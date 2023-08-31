@@ -1,8 +1,6 @@
-/* externalPanel.css */
-
-/* Style général pour le composant ExternalPanel */
 .external-panel {
-  border: 1px solid #ccc;
+
+  border: 2px solid #ccc;
   padding: 20px;
   margin: 20px;
   background-color: #f9f9f9;
@@ -10,39 +8,28 @@
   border-radius: 8px;
   
 }
-
-/* Styles pour les informations de direction et de porte */
-.external-panel-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
+.centered-header{
+  border: 1px solid red;
+  margin-top: 30px;
+  background-color:bisque;
+  border: 1px grey solid;
+  padding: 10px 10px ;
+  border-radius: 10px;
+ 
 }
 
-/* Styles pour la table des étages */
-.floor-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.floor-table th {
-  background-color: red;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
-margin-bottom: 20px;
-
-}
 
 
 .floor-table td {
   padding: 10px;
   text-align: center;
-  vertical-align: middle;
+
+  
   border-bottom: 1px solid #ddd;
 }
 
-/* Styles pour les boutons des étages dans ExternalPanel */
+
+
 .external-panel .floor-button {
   padding: 10px 20px;
   font-size: 14px;
@@ -63,7 +50,8 @@ margin-bottom: 20px;
   background-color: #007bff;
 }
 
-/* Styles pour les indicateurs de voyant vert */
+
+
 .external-panel .indicator-circle {
   display: flex;
   align-items: center;
@@ -88,13 +76,12 @@ margin-bottom: 20px;
 
   font-size: 18px;
   font-weight: bold;
-  padding-bottom: 20px;
   text-align: center;
-/* border: 1px blueviolet solid; */
-/* min-width: 100%; */
+
 }
-.AscenseurStop{
-  color: grey;
-  font-weight: bold;
-  margin-bottom: 20px;
+
+.container{
+  display: flex;
+  justify-content: center;
+
 }

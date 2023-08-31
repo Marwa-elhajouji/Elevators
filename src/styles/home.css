@@ -1,11 +1,15 @@
 .home {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
-  height: 100vh;
+  align-items: center;
   font-weight: bolder;
   font-size: 80px;
-  background-image: url("../assets/img/ascenseur.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
+
+   flex-direction: column;
+}
+.home div{
+  color: grey;
+}
+.home img{
+ max-height: 60vh;
 }

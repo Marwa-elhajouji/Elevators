@@ -42,8 +42,8 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
           clearInterval(interval)
           setTimeout(() => {
             setFloorQueue(remainingFloors)
-            setClickedButtons({ ...clickedButtons, [nextFloor]: false }) // Turn off the button
-          }, 500) // attend 5s
+            setClickedButtons({ ...clickedButtons, [nextFloor]: false })
+          }, 500)
         }
       }, intervalTime)
     }
@@ -70,40 +70,38 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
   }
 
   return (
-    <div className="external-panel">
-      <thead>
-        <tr>
-          <th className="centered-header">{title}</th>
-        </tr>
-      </thead>
-      <table className="floor-table">
-        <tbody>
-          {floors.map((floor) => (
-            <tr key={floor} className="floor">
-              <td>{floor}</td>
-              {/* <td>{currentAscFloor === floor ? "Arrived" : "-"}</td> */}
-              <td>
-                <div className="indicator-circle">
-                  {currentAscFloor === floor && (
-                    <div className="green-indicator"></div>
-                  )}
-                </div>
-              </td>
-              <td>
-                <button
-                  // className={clickedButtons[floor] ? "clicked" : "noneClicked"}
-                  className={
-                    "floor-button " +
-                    (clickedButtons[floor] ? "clicked" : "noneClicked")
-                  }
-                  onClick={() => handleRequestForFloor(floor)}>
-                  {floor}
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="container">
+      <th className="centered-header">{title}</th>
+      <div className="external-panel">
+        <table className="floor-table">
+          <tbody>
+            {floors.map((floor) => (
+              <tr key={floor} className="floor">
+                <td>{floor}</td>
+                {/* <td>{currentAscFloor === floor ? "Arrived" : "-"}</td> */}
+                <td>
+                  <div className="indicator-circle">
+                    {currentAscFloor === floor && (
+                      <div className="green-indicator"></div>
+                    )}
+                  </div>
+                </td>
+                <td>
+                  <button
+                    // className={clickedButtons[floor] ? "clicked" : "noneClicked"}
+                    className={
+                      "floor-button " +
+                      (clickedButtons[floor] ? "clicked" : "noneClicked")
+                    }
+                    onClick={() => handleRequestForFloor(floor)}>
+                    {floor}
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   )
 }

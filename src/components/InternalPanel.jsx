@@ -8,8 +8,6 @@ import {
   calculateIntervalTime
 } from "../utils/calculator"
 
-
-
 const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
   const [clickedButtons, setClickedButtons] = useState({})
   const [currentAscFloor, setCurrentAscFloor] = useState(3)
@@ -29,8 +27,8 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
       const nextFloor = floorQueue[0]
       const remainingFloors = floorQueue.slice(1)
 
-      setIsMovingUp(nextFloor > currentAscFloor) // Set direction
-      setIsDoorOpen(false) // Close door
+      setIsMovingUp(nextFloor > currentAscFloor)
+      setIsDoorOpen(false)
 
       const arrivalTime = calculateArrivalTime(currentAscFloor, nextFloor)
       const totalSteps = calculateTotalSteps(currentAscFloor, nextFloor)
@@ -48,7 +46,7 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
 
         if (intermediateFloor === nextFloor) {
           clearInterval(interval)
-          setIsDoorOpen(true) // Open door
+          setIsDoorOpen(true)
           setTimeout(() => {
             setFloorQueue(remainingFloors)
             setClickedButtons({ ...clickedButtons, [nextFloor]: false })
@@ -81,65 +79,48 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
   }
 
   return (
-    <div className="internal-panel">
-      <div className="internal-panel-info">
-        {/* <span className="direction-indicator">
-          Direction:{" "}
-          {isMovingUp !== null ? (isMovingUp ? "Up" : "Down") : "Stopped"}
-        </span> */}
-        <span className="direction-indicator">
-          {isMovingUp !== null ? (
-            <span className="arrow-icon">
-              {isMovingUp ? (
-                <img src="../src/assets/img/arrow-up.png" />
-              ) : (
-                // <img src="../src/assets/img/arrow-up.png" />
-                <img src="../src/assets/img/arrow-down.jpg" />
-              )}
-            </span>
-          ) : (
-            <span className="AscenseurStop"> Ascenseur Stopped</span>
-          )}
-        </span>
-        {/* <span>Door: {isDoorOpen ? "Open" : "Closed"}</span> */}
-      </div>
-      <table className="floor-table">
-        <thead>
-          <tr>
-            <th className="title-header">{title}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {floors.map((floor) => (
-            <tr key={floor}>
-              <td>
-                {/* <button
-                  // className={clickedButtons[floor] ? "clicked" : "noneClicked"}
-                  className={
-                    "floor-button " +
-                    (clickedButtons[floor] ? "clicked" : "noneClicked")
-                  }
-                  onClick={() => handleRequestForFloor(floor)}>
-                  {floor}
-                </button> */}
-                <button
-                  // className={clickedButtons[floor] ? "clicked" : "noneClicked"}
-                  className={
-                    "floor-button " +
-                    (clickedButtons[floor] ? "clicked" : "noneClicked")
-                  }
-                  onClick={() => handleRequestForFloor(floor)}>
-                  <span class="centered-content">{floor}</span>
-                </button>
-              </td>
-            </tr>
-          ))}
+    <div className="container">
+      <th className="title-header">{title}</th>
+      <div className="internal-panel">
+        <div className="internal-panel-info">
+          <span className="direction-indicator">
+            {isMovingUp !== null ? (
+              <span className="arrow-icon">
+                {isMovingUp ? (
+                  <img src="../src/assets/img/arrow-up.png" />
+                ) : (
+                  // <img src="../src/assets/img/arrow-up.png" />
+                  <img src="../src/assets/img/arrow-down.jpg" />
+                )}
+              </span>
+            ) : (
+              <span className="AscenseurStop"> Ascenseur Stopped</span>
+            )}
+          </span>
+          <table className="floor-table">
+            <tbody>
+              {floors.map((floor) => (
+                <tr key={floor}>
+                  <td>
+                    <button
+                      // className={clickedButtons[floor] ? "clicked" : "noneClicked"}
+                      className={
+                        "floor-button " +
+                        (clickedButtons[floor] ? "clicked" : "noneClicked")
+                      }
+                      onClick={() => handleRequestForFloor(floor)}>
+                      <span class="centered-content">{floor}</span>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
           <span className={`door ${isDoorOpen ? "open" : "closed"}`}>
-            {" "}
             {isDoorOpen ? "Door Open" : "Door Closed"}
           </span>
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
   )
 }

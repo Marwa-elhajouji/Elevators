@@ -1,15 +1,25 @@
-/* .externalPanels{
-    display: flex;
-    gap : 150px
-/* } */
+
 .externalPanels {
     display: flex;
-    justify-content: space-evenly; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-    height: 100vh; /* Ajuste la hauteur pour centrer verticalement */
+
+    gap : 200px
   }
   
   .panel-container {
-    margin: 20px; /* Espace entre les composants */
+    margin: 20px;
   }
-   */
+  
+  .title{
+color:tomato;
+font-weight: bolder;
+font-size: 40px;
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap : 30px;
+  
+  }
+ 

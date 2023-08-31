@@ -1,18 +1,14 @@
-.element-header{
+.links{
 display: flex;
-height:  5vh;
+height:  20vh;
 justify-content: space-around;
 align-items: center;
-margin: 50px 0 100px 50px;
-border-bottom: 1px gray solid /* Ajoutez cette ligne pour la bordure grise */
-
+border-bottom: 1px gray solid;
+background-color: rgb(243, 240, 240);
+margin-bottom: 60px;
 }
-.buttons{
-    display: flex;
-    gap: 50px;
 
-}
-.element-header a {
+.links a {
     text-decoration: none;
     color: grey;
     font-weight: bolder;
@@ -21,6 +17,6 @@ border-bottom: 1px gray solid /* Ajoutez cette ligne pour la bordure grise */
     border: 1px grey solid;
     padding: 10px 10px ;
     border-radius: 10px;
-    margin-bottom: 40px; /* Ajoutez cette ligne pour l'espacement en dessous des boutons */
+
 
 }

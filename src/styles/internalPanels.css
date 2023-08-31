@@ -1,16 +1,25 @@
-/* .internalPanels{
-    display: flex;
-    gap : 150px
-} */
+
 
 .internalPanels {
     display: flex;
-    justify-content: space-evenly; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-    height: 100vh; /* Ajuste la hauteur pour centrer verticalement */
+    justify-content: space-evenly;
+    height: 100vh; 
+    gap :200px
   }
   
   .panel-container {
-    margin: 20px; /* Espace entre les composants */
+    margin: 20px; 
   }
-  
+  .AscenseurStop{
+    margin-bottom: 10px;
+  }
+  .arrow-icon{
+    
+    width: 100%;
+    text-align: center;
+  }
+  .internal-panel-info{
+    display: flex;
+    flex-direction: column;
+    gap :10px
+  }
