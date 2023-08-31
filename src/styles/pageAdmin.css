@@ -3,7 +3,7 @@
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    /* border: #dc3545 1px solid; */
+
     display: flex;
     flex-direction: column;
     gap:30px;
@@ -81,18 +81,7 @@
     margin-top: 20px; 
   }
   
-/*   
-  /* .action{
-    border: 1px solid green;
-  }
-  /* .table-action{
-border: 1px solid red;
-margin-top: 20px;
-  } */ 
-  /* .table-action{
 
-border: 1px solid red;
-  } */
   .action{
     border: 1px grey solid;
     display: flex;
@@ -101,18 +90,12 @@ justify-content: center;
 gap: 50px;
 padding: 20px;
   }
-  /* .table-header{
-    border: 1px green solid;
-  } */
-  /* .ation >td{
-    border: blue 1px solid;
-  } */
+ 
   .title{
     color:tomato;
     font-weight: bolder;
     font-size: 40px;
     text-align: center;
-    /* margin-bottom: 50px; */
       }
       h3{
         color: gray;

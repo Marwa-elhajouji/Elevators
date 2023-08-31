@@ -103,7 +103,6 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
                 <tr key={floor}>
                   <td>
                     <button
-                      // className={clickedButtons[floor] ? "clicked" : "noneClicked"}
                       className={
                         "floor-button " +
                         (clickedButtons[floor] ? "clicked" : "noneClicked")

@@ -12,17 +12,18 @@ const AdminPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const response = await axios.get(
-        "http://localhost:3000/admin/actions"
-        //  {
-        //   auth: { username, password }
-        // }
-      )
+      const response = await axios.get("http://localhost:3000/admin/actions", {
+        auth: { username, password }
+      })
       console.log("data", response.data)
-      setAuthenticated(true)
-      setActions(response.data)
+      if (response.data.success) {
+        setAuthenticated(true)
+        setActions(response.data.actions)
+      } else {
+        alert("Login failed")
+      }
     } catch (error) {
-      console.error("Login failed:", error)
+      alert("Login failed")
     }
   }
   const handleSignup = async (e) => {
@@ -39,7 +40,19 @@ const AdminPage = () => {
   }
   useEffect(() => {
     if (authenticated) {
-      // Fetch actions here and set the actions state
+      const config = {
+        headers: {
+          Authorization: `Basic ${btoa(`${username}:${password}`)}`
+        }
+      }
+      axios
+        .get("http://localhost:3000/admin/actions")
+        .then((response) => {
+          setActions(response.data)
+        })
+        .catch((error) => {
+          console.error("Error fetching actions:", error)
+        })
     }
   }, [authenticated])
 

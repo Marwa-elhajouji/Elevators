@@ -78,7 +78,7 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
             {floors.map((floor) => (
               <tr key={floor} className="floor">
                 <td>{floor}</td>
-                {/* <td>{currentAscFloor === floor ? "Arrived" : "-"}</td> */}
+
                 <td>
                   <div className="indicator-circle">
                     {currentAscFloor === floor && (
@@ -88,7 +88,6 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
                 </td>
                 <td>
                   <button
-                    // className={clickedButtons[floor] ? "clicked" : "noneClicked"}
                     className={
                       "floor-button " +
                       (clickedButtons[floor] ? "clicked" : "noneClicked")

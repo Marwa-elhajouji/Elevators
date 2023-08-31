@@ -17,7 +17,7 @@ const Signup = () => {
       console.log("Signup successful:", response.data)
       setSignupSuccess(true)
     } catch (error) {
-      console.error("Signup failed:", error)
+      alert("Signup failed")
     }
   }
 
