@@ -1,4 +1,16 @@
-.internalPanels{
+/* .internalPanels{
     display: flex;
     gap : 150px
-}
+} */
+
+.internalPanels {
+    display: flex;
+    justify-content: space-evenly; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Ajuste la hauteur pour centrer verticalement */
+  }
+  
+  .panel-container {
+    margin: 20px; /* Espace entre les composants */
+  }
+  

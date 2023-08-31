@@ -1,0 +1,102 @@
+/* internalPanel.css */
+
+/* Style général pour le composant InternalPanel */
+.internal-panel {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styles pour les informations de direction et de porte */
+  .internal-panel-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  /* Styles pour la table des étages */
+  .floor-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .floor-table th {
+    background-color: #eee;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .floor-table td {
+    padding: 5px;
+    text-align: center;
+  }
+  
+  /* Styles pour les boutons des étages */
+  .floor-button {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+    color: grey;
+    font-weight:bolder;
+    border-radius: 4px;
+ 
+  }
+  centered-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;  }
+
+  .floor-button .centered-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ 
+  }
+  
+  .floor-button.clicked {
+    background-color: #28a745;
+  }
+  
+  /* Styles pour les boutons lorsqu'ils ne sont pas cliqués */
+  .floor-button.noneClicked {
+    background-color: #ccc;
+    /* cursor: not-allowed; */
+  }
+  .internal-panel .internal-panel-info .direction-indicator {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Styles pour l'icône de flèche */
+  .internal-panel .internal-panel-info .arrow-icon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+  .arrow-icon>img{
+    width: 50px;
+    height: 50px;
+  }
+  .door {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .open {
+    color: green; /* Couleur pour la porte ouverte */
+    margin-top: 20px;
+
+  }
+
+  .closed {
+    color: red; /* Couleur pour la porte fermée */
+    margin-top: 20px;
+
+  }

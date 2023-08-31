@@ -1,0 +1,26 @@
+.element-header{
+display: flex;
+height:  5vh;
+justify-content: space-around;
+align-items: center;
+margin: 50px 0 100px 50px;
+border-bottom: 1px gray solid /* Ajoutez cette ligne pour la bordure grise */
+
+}
+.buttons{
+    display: flex;
+    gap: 50px;
+
+}
+.element-header a {
+    text-decoration: none;
+    color: grey;
+    font-weight: bolder;
+    font-size: 30px;
+    background-color:bisque;
+    border: 1px grey solid;
+    padding: 10px 10px ;
+    border-radius: 10px;
+    margin-bottom: 40px; /* Ajoutez cette ligne pour l'espacement en dessous des boutons */
+
+}

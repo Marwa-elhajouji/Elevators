@@ -1,0 +1,11 @@
+.home {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  height: 100vh;
+  font-weight: bolder;
+  font-size: 80px;
+  background-image: url("../assets/img/ascenseur.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}

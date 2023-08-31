@@ -1,16 +1,100 @@
-td {
-  min-width: 30px;
-  border: 1px solid red;
-  min-height: 20px;
+/* externalPanel.css */
+
+/* Style général pour le composant ExternalPanel */
+.external-panel {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  
+}
+
+/* Styles pour les informations de direction et de porte */
+.external-panel-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Styles pour la table des étages */
+.floor-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.floor-table th {
+  background-color: red;
+  padding: 10px;
   text-align: center;
+  font-weight: bold;
+margin-bottom: 20px;
+
 }
-td > button{
-    width: 30px;
-    height: 20px;
+
+
+.floor-table td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
 }
-.clicked{
+
+/* Styles pour les boutons des étages dans ExternalPanel */
+.external-panel .floor-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  background-color: #ccc;
+  transition: background-color 0.3s ease;
+}
+
+.external-panel .floor-button:hover {
+  background-color: #28a745;
+}
+
+.external-panel .floor-button.clicked {
+  background-color: #007bff;
+}
+
+/* Styles pour les indicateurs de voyant vert */
+.external-panel .indicator-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.external-panel .green-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
   background-color: green;
+  border-radius: 50%;
 }
-.noneClicked{
-  background-color: grey;
+.centered-header{
+
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  text-align: center;
+/* border: 1px blueviolet solid; */
+/* min-width: 100%; */
+}
+.AscenseurStop{
+  color: grey;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
