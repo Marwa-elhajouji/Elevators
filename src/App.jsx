@@ -8,11 +8,10 @@ function App() {
   
 
   return (
-<>
-
-<ExternalPanels/>
-<InternalPanels/>
-</>
+    <>
+      <ExternalPanels />
+      <InternalPanels />
+    </>
   )
 }
 

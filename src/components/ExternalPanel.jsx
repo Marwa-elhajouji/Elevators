@@ -60,6 +60,7 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
     addFloorToQueue(floor)
 
     const dataToSend = {
+      elevator: title,
       actionType: "external_call",
       currentFloor: floor,
       time: new Date().toISOString()
