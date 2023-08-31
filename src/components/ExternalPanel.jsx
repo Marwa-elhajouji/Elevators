@@ -43,7 +43,7 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
           setTimeout(() => {
             setFloorQueue(remainingFloors)
             setClickedButtons({ ...clickedButtons, [nextFloor]: false })
-          }, 500)
+          }, 5000)
         }
       }, intervalTime)
     }

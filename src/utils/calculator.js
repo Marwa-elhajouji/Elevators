@@ -1,5 +1,4 @@
-const TIME_BY_EACH_FLOOR = 1000
-
+const TIME_BY_EACH_FLOOR = 3000
 
 export const calculateArrivalTime = (currentFloor, targetFloor) => {
   const floorDifference = Math.abs(targetFloor - currentFloor)

@@ -16,9 +16,9 @@ const AdminPage = () => {
         auth: { username, password }
       })
       console.log("data", response.data)
-      if (response.data.success) {
+      if (response.status === 200) {
         setAuthenticated(true)
-        setActions(response.data.actions)
+        setActions(response.data)
       } else {
         alert("Login failed")
       }
