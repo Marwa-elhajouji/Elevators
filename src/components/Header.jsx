@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <div className="links">
         <Link to="/">Home</Link>
-        <Link to="/externalPanels">ExternalPeaels</Link>
+        <Link to="/externalPanels">ExternalPanels</Link>
         <Link to="/internalPanels">InternalPanels</Link>
         <Link to="/pageAdmin">Page Admin</Link>
       </div>

@@ -49,9 +49,10 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
           setIsDoorOpen(true)
           setTimeout(() => {
             setFloorQueue(remainingFloors)
-            setClickedButtons({ ...clickedButtons, [nextFloor]: false })
+
             setIsDoorOpen(false)
           }, doorOpenTime)
+          setClickedButtons({ ...clickedButtons, [nextFloor]: false })
         }
       }, intervalTime)
     }
@@ -89,7 +90,6 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
                 {isMovingUp ? (
                   <img src="../src/assets/img/arrow-up.png" />
                 ) : (
-                  // <img src="../src/assets/img/arrow-up.png" />
                   <img src="../src/assets/img/arrow-down.jpg" />
                 )}
               </span>
