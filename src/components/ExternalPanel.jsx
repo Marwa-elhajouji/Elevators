@@ -84,8 +84,8 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
 
   return (
     <div className="container">
-      <th className="centered-header">{title}</th>
       <div className="external-panel">
+        <div className="centered-header">{title}</div>
         <table className="floor-table">
           <tbody>
             {floors.map((floor) => (

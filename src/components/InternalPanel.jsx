@@ -23,9 +23,14 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
   useEffect(() => {
     if (floorQueue.length === 0) return
 
+    const sortedQueue = [...floorQueue].sort((a, b) => a - b)
+    if (isMovingUp === false) {
+      sortedQueue.reverse()
+    }
+
     const moveToNextFloor = () => {
-      const nextFloor = floorQueue[0]
-      const remainingFloors = floorQueue.slice(1)
+      const nextFloor = sortedQueue[0]
+      const remainingFloors = sortedQueue.slice(1)
 
       setIsMovingUp(nextFloor > currentAscFloor)
       setIsDoorOpen(false)
@@ -58,7 +63,7 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
     }
 
     moveToNextFloor()
-  }, [floorQueue])
+  }, [floorQueue, isMovingUp])
 
   const handleRequestForFloor = async (floor) => {
     if (!allowedFloors.includes(floor)) {
@@ -81,7 +86,7 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
 
   return (
     <div className="container">
-      <th className="title-header">{title}</th>
+      <div className="title-header">{title}</div>
       <div className="internal-panel">
         <div className="internal-panel-info">
           <span className="direction-indicator">
@@ -114,7 +119,7 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
                         (clickedButtons[floor] ? "clicked" : "noneClicked")
                       }
                       onClick={() => handleRequestForFloor(floor)}>
-                      <span class="centered-content">{floor}</span>
+                      <span className="centered-content">{floor}</span>
                     </button>
                   </td>
                 </tr>
