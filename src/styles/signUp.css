@@ -52,4 +52,10 @@
   .signup-link:hover {
     text-decoration: underline;
   }
-  
+  .signup{
+    display: flex;
+    flex-direction: column;
+    gap : 20px;
+    justify-content: center;
+    align-items: center;
+  }

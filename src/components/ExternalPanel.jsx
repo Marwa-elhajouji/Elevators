@@ -12,17 +12,30 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
   const [clickedButtons, setClickedButtons] = useState({})
   const [currentAscFloor, setCurrentAscFloor] = useState(3)
   const [floorQueue, setFloorQueue] = useState([])
+  const [ascending, setAscending] = useState(true)
 
   const addFloorToQueue = (floor) => {
-    setFloorQueue((prev) => [...prev, floor])
+    setFloorQueue((prev) => {
+      const newQueue = [...prev, floor]
+      setAscending(floor >= currentAscFloor)
+      return newQueue
+    })
   }
 
   useEffect(() => {
     if (floorQueue.length === 0) return
 
+    let sortedQueue = [...floorQueue]
+
+    if (ascending) {
+      sortedQueue.sort((a, b) => a - b)
+    } else {
+      sortedQueue.sort((a, b) => b - a)
+    }
+
     const moveToNextFloor = () => {
-      const nextFloor = floorQueue[0]
-      const remainingFloors = floorQueue.slice(1)
+      const nextFloor = sortedQueue[0]
+      const remainingFloors = sortedQueue.slice(1)
 
       const arrivalTime = calculateArrivalTime(currentAscFloor, nextFloor)
       const totalSteps = calculateTotalSteps(currentAscFloor, nextFloor)
@@ -49,7 +62,7 @@ const ExternalPanel = ({ floors, title, allowedFloors = floors }) => {
     }
 
     moveToNextFloor()
-  }, [floorQueue])
+  }, [floorQueue, ascending])
 
   const handleRequestForFloor = async (floor) => {
     if (!allowedFloors.includes(floor)) {

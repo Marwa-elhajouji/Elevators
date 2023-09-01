@@ -16,6 +16,7 @@ const Signup = () => {
       })
       console.log("Signup successful:", response.data)
       setSignupSuccess(true)
+      alert("Signup successful")
     } catch (error) {
       alert("Signup failed")
     }
@@ -23,27 +24,33 @@ const Signup = () => {
 
   return (
     <div className="signup-page">
-      <h2>Sign Up</h2>
-
-      <form className="signup-form" onSubmit={handleSignup}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="signup-input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="signup-input"
-        />
-        <button type="submit" className="signup-button">
-          Signup
-        </button>
-      </form>
+      {!signupSuccess ? (
+        <form className="signup-form" onSubmit={handleSignup}>
+          <h2>Sign Up</h2>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="signup-input"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="signup-input"
+          />
+          <button type="submit" className="signup-button">
+            Signup
+          </button>
+        </form>
+      ) : (
+        <div className="signup">
+          <p>Signup successful!</p>
+          <Link to="/login">Click here to login</Link>
+        </div>
+      )}
     </div>
   )
 }

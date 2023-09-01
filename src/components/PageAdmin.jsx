@@ -2,6 +2,8 @@ import "../styles/pageAdmin.css"
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom"
+import History from "./History"
+import LogIn from "./LogIn"
 
 const AdminPage = () => {
   const [username, setUsername] = useState("")
@@ -13,7 +15,9 @@ const AdminPage = () => {
     e.preventDefault()
     try {
       const response = await axios.get("http://localhost:3000/admin/actions", {
-        auth: { username, password }
+        headers: {
+          Authorization: `Basic ${btoa(`${username}:${password}`)}`
+        }
       })
       console.log("data", response.data)
       if (response.status === 200) {
@@ -38,77 +42,20 @@ const AdminPage = () => {
       console.error("Signup failed:", error)
     }
   }
-  useEffect(() => {
-    if (authenticated) {
-      const config = {
-        headers: {
-          Authorization: `Basic ${btoa(`${username}:${password}`)}`
-        }
-      }
-      axios
-        .get("http://localhost:3000/admin/actions")
-        .then((response) => {
-          setActions(response.data)
-        })
-        .catch((error) => {
-          console.error("Error fetching actions:", error)
-        })
-    }
-  }, [authenticated])
 
   if (!authenticated) {
     return (
-      <div className="admin-page">
-        <form className="login-form" onSubmit={handleLogin}>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Login</button>
-        </form>
-
-        <div className="signup-button-container">
-          <Link to="/signup" className="signup-button-admin">
-            SignUp
-          </Link>
-        </div>
-      </div>
+      <LogIn
+        handleLogin={handleLogin}
+        username={username}
+        setUsername={setUsername}
+        password={password}
+        setPassword={setPassword}
+      />
     )
   }
 
-  return (
-    <div className="admin-page">
-      <div className="title">Admin Page</div>
-      <button className="logout-button" onClick={() => setAuthenticated(false)}>
-        Logout
-      </button>
-      <h3>Elevator Actions:</h3>
-      <div>
-        <table className="table-action">
-          <tr>
-            {" "}
-            {actions.map((action) => (
-              <table key={action._id} className="action">
-                <td>{action.elevator}</td>
-                <td> {action.actionType}</td>
-                <td> {action.currentFloor}</td>
-                <td> {action.targetFloor}</td>
-                <td> {action.time}</td>
-              </table>
-            ))}
-          </tr>
-        </table>
-      </div>
-    </div>
-  )
+  return <History actions={actions} setAuthenticated={setAuthenticated} />
 }
 
 export default AdminPage

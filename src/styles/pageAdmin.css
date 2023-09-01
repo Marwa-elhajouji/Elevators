@@ -85,10 +85,10 @@
   .action{
     border: 1px grey solid;
     display: flex;
-max-width: 100%;
-justify-content: center;
-gap: 50px;
-padding: 20px;
+    max-width: 100%;
+    justify-content: center;
+    gap: 50px;
+    padding: 20px;
   }
  
   .title{

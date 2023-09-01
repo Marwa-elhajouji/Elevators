@@ -88,9 +88,15 @@ const InternalPanel = ({ floors, title, allowedFloors = floors }) => {
             {isMovingUp !== null ? (
               <span className="arrow-icon">
                 {isMovingUp ? (
-                  <img src="../src/assets/img/arrow-up.png" />
+                  <div>
+                    <img src="../src/assets/img/arrow-up.png" />
+                    <div>{currentAscFloor}</div>
+                  </div>
                 ) : (
-                  <img src="../src/assets/img/arrow-down.jpg" />
+                  <div>
+                    <img src="../src/assets/img/arrow-down.jpg" />
+                    <div>{currentAscFloor}</div>
+                  </div>
                 )}
               </span>
             ) : (
